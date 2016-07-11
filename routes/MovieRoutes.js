@@ -6,11 +6,11 @@ angular.module("theMovieApp")
        .when('/', {
          // template: 'Home!'
          templateUrl: '/templates/movies_index.html',
-         controller: 'MovieController'
+         controller: 'MovieIndexController'
        })
        .when('/movies/:imdbID', {
            templateUrl: '/templates/movie_show.html',
-           controller: 'MovieController'
+           controller: 'MovieShowController'
        });
 
        $locationProvider.html5Mode({

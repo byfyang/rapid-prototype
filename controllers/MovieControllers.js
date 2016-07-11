@@ -1,28 +1,41 @@
 console.log("controllers linked!");
 
 angular.module("theMovieApp")
-  .controller("MovieController", MovieController);
+  .controller("MovieIndexController", MovieIndexController)
+  .controller("MovieShowController", MovieShowController);
 
 
-MovieController.$inject = ['$scope', '$http'];
-function MovieController ($scope, $http) {
+MovieIndexController.$inject = ['$scope', '$http'];
+function MovieIndexController ($scope, $http) {
   var self = this;
   self.all = [];
   $scope.searchTitles = searchTitles;
+  // $scope.showMovie = showMovie;
 
   function searchTitles (word) {
     $http
       .get('http://www.omdbapi.com/?s=' + word +'&y=&plot=full&r=json&type=movie')
       .then(function(response){
-        self.all = response.data.Search;
+        $scope.movies = response.data.Search;
         $scope.results = response.data.totalResults;
       });
-  }
-
-  function showMovie($scope, MovieService, $routeParams){
-    $scope.movie = MovieService.get($routeParams.imdbID); 
-  }
+  } 
 }
+
+MovieShowController.$inject = ['$scope', '$http'];
+function MovieShowController ($scope, $http, MovieService, $routeParams) {
+  // var self = this;
+  // self.all = [];
+  // $scope.sj = searchTitles;
+
+  // $scope.movie = MovieService.get($routeParams.imdbID); 
+  // function showMovie(){
+  //   window.location.href = '/movies';
+  //   console.log("emilio")
+  // }
+
+}
+
 
 angular.module('theMovieApp')
   .factory('MovieService', function(){

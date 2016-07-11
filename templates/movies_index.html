@@ -1,14 +1,14 @@
 
 <h1>Discover Movie Titles!</h1>
-<div class="container" ng-controller="MovieController">
+<div class="container" ng-controller="MovieIndexController as movies">
 	<form ng-submit="searchTitles(word)">
 		<input type="text" name="word" placeholder="Type a word to search a Title" ng-model="word">
 		<input type="submit" value="Search">
 	</form>
 	<h1>There are {{results}} results in your search</h1>
 
-	<div ng-repeat="movie in MovieController.all">
-		<a ng-href="/movies/{{movie.imdbID}}"><h6>{{movie.Title}}</h6></a>
+	<div ng-repeat="movie in movies">
+		<a href="/movies/{{movie.imdbID}}"><h2>{{movie.Title}}</h2></a>
 		<p>{{movie.Type}}</p>
 		<p>{{movie.Year}}</p>
 	</div>
