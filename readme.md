@@ -1,4 +1,4 @@
-# <> Angular Weekend Lab - Discover Movies
+# Angular Weekend Lab - Discover Movies
 
 **Objective:** Use an external API, where the users can discover new movies based on a key word. The search function will provide information about the movies provided by the API.
 
