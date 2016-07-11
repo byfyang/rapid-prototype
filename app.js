@@ -1,1 +1,1 @@
-angular.module("theOfficeApp", ['ngResource']);
+angular.module("theMovieApp", ['ngRoute']);
